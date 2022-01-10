@@ -1,0 +1,34 @@
+﻿<Window x:Class="Notes.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Notes"
+        mc:Ignorable="d"
+        Title="{DynamicResource main_Title}" Height="750" Width="420" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="/ruled_sheet.jpg"/>
+    </Window.Background>
+    <Grid>
+        <Button Name ="CreateButton" Content="{DynamicResource main_Add}" HorizontalAlignment="Center" Margin="0,90,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe Print" Height="63" FontWeight="Bold" Cursor="Hand" BorderBrush="Black" UseLayoutRounding="False" Click="CreateButton_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/stol.jpg" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <ListBox Name ="NotesList"  Margin="18,237,18,37" MouseDoubleClick="NotesList_ItemDoubleClick" Background="{x:Null}">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="{DynamicResource main_Del}" Click="DelButton_Click"></MenuItem>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </ListBox>
+        <TextBlock Text="{DynamicResource main_Title}" TextWrapping="Wrap" FontFamily="Segoe Print" FontSize="48" HorizontalAlignment="Center" Width="202" Height="85" VerticalAlignment="Top"/>
+        <TextBlock Margin="19,170,19,0" Text="{DynamicResource main_List}" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" FontFamily="Segoe Print" FontSize="32" TextAlignment="Center" FontWeight="Bold"/>
+        <ComboBox Margin="0,0,18,10" SelectionChanged="Lang_SelectionChanged" HorizontalAlignment="Right" Width="120" Height="22" VerticalAlignment="Bottom">
+            <ComboBoxItem Name="nRu" Content="{DynamicResource r_Russian}" Tag="rus-RU"/>
+            <ComboBoxItem Name="nEn" Content="{DynamicResource r_English}" Tag="en-US"/>
+            <ComboBoxItem Name="nEs" Content="{DynamicResource r_Espanol}" Tag="es-ES"/>
+            <ComboBoxItem Name="nFr" Content="{DynamicResource r_France}" Tag="fr"/>
+        </ComboBox>
+    </Grid>
+</Window>
